@@ -6,15 +6,15 @@ import { AppWrap, MotionWrap } from "../../wrapper";
 import { urlFor, client } from "../../client";
 
 const Skills = () => {
-  const [experience, setExperience] = useState([]);
+  const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    const query = '*[_type=="experiences"]';
-    const skillsQuery = '*[_type=="skills"]';
+    const query = '*[_type == "experiences"]';
+    const skillsQuery = '*[_type == "skills"]';
 
     client.fetch(query).then((data) => {
-      setExperience(data);
+      setExperiences(data);
     });
 
     client.fetch(skillsQuery).then((data) => {
@@ -24,14 +24,14 @@ const Skills = () => {
 
   return (
     <>
-      <h2 className="head-text">Skiils & Experience</h2>
+      <h2 className="head-text">Skills & Experiences</h2>
       <div className="app__skills-container">
         <motion.div className="app__skills-list">
           {skills.map((skill) => (
             <motion.div
               whileInView={{ opacity: [0, 1] }}
               transition={{ duration: 0.5 }}
-              className="app__skills-item app__file"
+              className="app__skills-item app__flex"
               key={skill.name}
             >
               <div
@@ -44,10 +44,10 @@ const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
-        <motion.div className="app__skills-exp">
-          {experience?.map((experience) => (
-            <motion.div className="app__skills-exp" key={experience.year}>
-              <div className="app_skills-exp-year">
+        <div className="app__skills-exp">
+          {experiences.map((experience) => (
+            <motion.div className="app__skills-exp-item" key={experience.year}>
+              <div className="app__skills-exp-year">
                 <p className="bold-text">{experience.year}</p>
               </div>
               <motion.div className="app__skills-exp-works">
@@ -77,7 +77,7 @@ const Skills = () => {
               </motion.div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </>
   );
@@ -88,4 +88,3 @@ export default AppWrap(
   "skills",
   "app__whitebg"
 );
-

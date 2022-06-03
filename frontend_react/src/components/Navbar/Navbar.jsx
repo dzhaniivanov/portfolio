@@ -2,9 +2,10 @@ import "./Navbar.scss";
 import { images } from "../../constants";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useId, useState } from "react";
 
 const Navbar = () => {
+
   const [toggle, setToggle] = useState(false);
 
   return (
