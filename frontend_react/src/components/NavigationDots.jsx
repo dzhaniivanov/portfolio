@@ -4,10 +4,9 @@ const NavigationDots = ({ active }) => {
       {[
         "home",
         "about",
-        "contact",
         "work",
         "skills",
-        "testimonials",
+        "testimonial",
         "contact",
       ].map((item, index) => (
         <a
@@ -19,6 +18,6 @@ const NavigationDots = ({ active }) => {
       ))}
     </div>
   );
-};
+};  
 
 export default NavigationDots;

@@ -2,7 +2,7 @@ import "./Navbar.scss";
 import { images } from "../../constants";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { useId, useState } from "react";
+import {  useState } from "react";
 
 const Navbar = () => {
 
@@ -14,7 +14,7 @@ const Navbar = () => {
         <img src={images.logo} alt="logo" />
       </div>
       <ul className="app__navbar-links">
-        {["home", "about", "contact", "work", "skills", "contact"].map(
+        {["home", "about", "contact", "work", "skills"].map(
           (item) => (
             <li key={`link-${item}`} className="app__flex p-text">
               <div />
